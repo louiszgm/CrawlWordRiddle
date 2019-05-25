@@ -17,3 +17,13 @@ CREATE TABLE `puzzle_zwmy` (
   `url` varchar(100) DEFAULT '' COMMENT '数据来源',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='植物谜语';
+
+CREATE TABLE `puzzle_njmy` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `puzzle` varchar(500) DEFAULT '' COMMENT '谜面',
+  `mimu` varchar(500) DEFAULT '' COMMENT '谜目',
+  `answer` varchar(100) DEFAULT '' COMMENT '谜底',
+  `tips` varchar(500) DEFAULT '' COMMENT '小贴士',
+  `url` varchar(100) DEFAULT '' COMMENT '数据来源',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='脑经急转弯谜语';

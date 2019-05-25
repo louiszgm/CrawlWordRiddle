@@ -42,14 +42,11 @@ func CrawlRiddleByType(puzzleType string) {
 }
 func Start() {
 
-	wg.Add(2)
+	wg.Add(1)
+
 	go func() {
 		defer wg.Done()
-		CrawlRiddleByType("zwmy")
-	}()
-	go func() {
-		defer wg.Done()
-		CrawlRiddleByType("dwmy")
+		CrawlRiddleByType("njmy")
 	}()
 	wg.Wait()
 }
