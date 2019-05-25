@@ -26,3 +26,12 @@ CREATE TABLE `ask_njmy` (
   `url` varchar(100) DEFAULT '' COMMENT '数据来源',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='脑经急转弯';
+
+CREATE TABLE `ask_zlmy` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `question` varchar(500) DEFAULT '' COMMENT '问',
+  `answer` varchar(100) DEFAULT '' COMMENT '答',
+  `tips` varchar(500) DEFAULT '' COMMENT '小贴士',
+  `url` varchar(100) DEFAULT '' COMMENT '数据来源',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='智力问答';

@@ -62,8 +62,10 @@ func GetTypeKeyCode(keyType string) (keycode int) {
 		keycode = 25
 	} else if keyType == "zwmy" {
 		keycode = 33
-	} else if keyType == "nlmy" {
+	} else if keyType == "njmy" {
 		keycode = 12
+	} else if keyType == "zlmy" {
+		keycode = 17
 	}
 	return keycode
 }
