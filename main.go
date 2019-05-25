@@ -34,8 +34,9 @@ func AddAsk(index int, ask spider.Ask) {
 }
 
 func CrawlRiddleByType(puzzleType string) {
-	url := fmt.Sprintf("%s%s", BaseUrl, puzzleType)
-	pages = spider.GetPages(url)
+	//	http://www.cmiyu.com/zwmy/
+	url := fmt.Sprintf("%s%s/", BaseUrl, puzzleType)
+	pages = spider.GetPages(url, puzzleType)
 	totalPagesNum := len(pages)
 	for pageIndex, page := range pages {
 		log.Printf("开始爬取%s的第%d页，一共%d页, 地址为: %s", puzzleType, pageIndex, totalPagesNum, page.Url)
@@ -50,8 +51,8 @@ func CrawlRiddleByType(puzzleType string) {
 }
 
 func CrawAskByType(askType string) {
-	url := fmt.Sprintf("%s%s", BaseUrl, askType)
-	pages = spider.GetPages(url)
+	url := fmt.Sprintf("%s%s/", BaseUrl, askType)
+	pages = spider.GetPages(url, askType)
 	totalPagesNum := len(pages)
 	for pageIndex, page := range pages {
 		log.Printf("开始爬取%s的第%d页，一共%d页, 地址为: %s", askType, pageIndex, totalPagesNum, page.Url)
@@ -65,11 +66,16 @@ func CrawAskByType(askType string) {
 }
 func Start() {
 
-	wg.Add(1)
+	wg.Add(2)
 
 	go func() {
 		defer wg.Done()
-		CrawAskByType("njmy")
+		CrawlRiddleByType("dwmy")
+	}()
+
+	go func() {
+		defer wg.Done()
+		CrawlRiddleByType("zwmy")
 	}()
 	wg.Wait()
 }

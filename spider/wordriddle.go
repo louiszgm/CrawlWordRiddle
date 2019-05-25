@@ -73,54 +73,6 @@ func (riddle *Riddle) ParseRiddle() {
 	}
 }
 
-type Page struct {
-	Page int
-	Url  string
-}
-
-func (page Page) String() {
-	fmt.Printf("NumPage %d , url is %s", page.Page, page.Url)
-}
-
-func GetPages(url string) (pages []Page) {
-	doc, err := goquery.NewDocument(url)
-	if err != nil {
-		log.Fatal(err)
-	}
-	return parsePages(url, doc)
-}
-
-func parsePages(puzzleUrl string, doc *goquery.Document) (pages []Page) {
-	pages = append(pages, Page{Page: 1, Url: ""})
-	var firstHrefLink string
-	var lastHrefLink string
-	doc.Find(".pages ul").Each(func(i int, s *goquery.Selection) {
-		s.Find(".sy1 a").Each(func(i int, s *goquery.Selection) {
-			href, _ := s.Attr("href")
-			lastHrefLink = href
-		})
-
-		s.Find(".sy2 a").Each(func(i int, s *goquery.Selection) {
-			page, _ := strconv.Atoi(s.Text())
-			if page == 2 {
-				href, _ := s.Attr("href")
-				firstHrefLink = href
-				return
-			}
-		})
-	})
-	pageSize := parsePageNum(lastHrefLink) - parsePageNum(firstHrefLink)
-	for i := 0; i < pageSize; i++ {
-		pageNum := parsePageNum(firstHrefLink) + i
-		url := fmt.Sprintf("%s/my%d.html", puzzleUrl, pageNum)
-		pages = append(pages, Page{
-			Page: pageNum,
-			Url:  url,
-		})
-	}
-	return pages
-}
-
 func GetRiddles(url string) (riddles []Riddle) {
 	if url == "" {
 		return
