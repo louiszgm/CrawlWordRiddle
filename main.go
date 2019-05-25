@@ -25,6 +25,14 @@ func Add(index int, riddle spider.Riddle) {
 
 }
 
+func AddAsk(index int, ask spider.Ask) {
+
+	if err := model.DB.Create(&ask).Error; err != nil {
+		log.Printf("db.Create index: %s, err : %v", index, err)
+	}
+
+}
+
 func CrawlRiddleByType(puzzleType string) {
 	url := fmt.Sprintf("%s%s", BaseUrl, puzzleType)
 	pages = spider.GetPages(url)
@@ -40,13 +48,28 @@ func CrawlRiddleByType(puzzleType string) {
 	}
 
 }
+
+func CrawAskByType(askType string) {
+	url := fmt.Sprintf("%s%s", BaseUrl, askType)
+	pages = spider.GetPages(url)
+	totalPagesNum := len(pages)
+	for pageIndex, page := range pages {
+		log.Printf("开始爬取%s的第%d页，一共%d页, 地址为: %s", askType, pageIndex, totalPagesNum, page.Url)
+		askList := spider.GetAsks(page.Url)
+		for index, ask := range askList {
+			ask.Type = askType
+			ask.ParseAsk()
+			AddAsk(index, ask)
+		}
+	}
+}
 func Start() {
 
 	wg.Add(1)
 
 	go func() {
 		defer wg.Done()
-		CrawlRiddleByType("njmy")
+		CrawAskByType("njmy")
 	}()
 	wg.Wait()
 }

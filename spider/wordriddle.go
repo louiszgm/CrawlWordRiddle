@@ -67,8 +67,10 @@ func (riddle *Riddle) ParseRiddle() {
 	//解析小贴士
 	tips := doc.Find(".zy p").Text()
 	tipsUtf8, _ := converter.ConvertString(tips)
-	tips = splitStringAndTrim(tipsUtf8, "：")[1]
-	riddle.Tips = tips
+	tipsArray := splitStringAndTrim(tipsUtf8, "：")
+	if len(tipsArray) == 2 {
+		riddle.Tips = tipsArray[1]
+	}
 }
 
 type Page struct {
