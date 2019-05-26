@@ -12,7 +12,7 @@ import (
 )
 
 var (
-	PageCharset = "GB2312"
+	PageCharset = "GBK"
 	BaseUrl     = "http://www.cmiyu.com"
 )
 
