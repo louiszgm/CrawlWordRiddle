@@ -17,7 +17,7 @@ type Ask struct {
 }
 
 func (ask Ask) TableName() string {
-	return "ask_" + ask.Type
+	return "ask_" + ask.Type + "_new"
 }
 
 func (ask *Ask) ParseAsk() {
