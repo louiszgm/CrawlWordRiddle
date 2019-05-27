@@ -67,7 +67,7 @@ func (riddle *Riddle) ParseRiddle() {
 	//解析小贴士
 	tips := doc.Find(".zy p").Text()
 	tipsUtf8, _ := converter.ConvertString(tips)
-	riddles.Tips = tipsUtf8
+	riddle.Tips = tipsUtf8
 }
 
 func GetRiddles(url string) (riddles []Riddle) {
