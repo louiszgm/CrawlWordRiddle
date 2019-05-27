@@ -27,7 +27,7 @@ type Riddle struct {
 }
 
 func (riddle Riddle) TableName() string {
-	return "puzzle_" + riddle.Type
+	return "puzzle_" + riddle.Type + "_new"
 }
 
 func (riddle *Riddle) ParseRiddle() {
