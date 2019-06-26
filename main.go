@@ -70,25 +70,25 @@ func Start() {
 
 	go func() {
 		defer wg.Done()
-		CrawlRiddleByType("gxmy")
+		CrawlRiddleByType("rmmy")
 	}()
 
 	go func() {
 		defer wg.Done()
-		CrawlRiddleByType("zmmy")
+		CrawlRiddleByType("dm")
 	}()
 
 	go func() {
 		defer wg.Done()
-		CrawlRiddleByType("cymy")
+		CrawlRiddleByType("cy")
 	}()
 	go func() {
 		defer wg.Done()
-		CrawlRiddleByType("aqmy")
+		CrawlRiddleByType("dgmy")
 	}()
 	go func() {
 		defer wg.Done()
-		CrawlRiddleByType("dmmy")
+		CrawlRiddleByType("ry")
 	}()
 
 	// go func() {
