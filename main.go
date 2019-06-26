@@ -66,7 +66,7 @@ func CrawAskByType(askType string) {
 }
 func Start() {
 
-	wg.Add(1)
+	wg.Add(5)
 
 	go func() {
 		defer wg.Done()
