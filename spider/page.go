@@ -66,6 +66,26 @@ func GetTypeKeyCode(keyType string) (keycode int) {
 		keycode = 12
 	} else if keyType == "zlmy" {
 		keycode = 17
+	} else if keyType == "gxmy" {
+		keycode = 14
+	} else if keyType == "zmmy" {
+		keycode = 13
+	} else if keyType == "cymy" {
+		keycode = 20
+	} else if keyType == "aqmy" {
+		keycode = 16
+	} else if keyType == "dmmy" {
+		keycode = 18
+	} else if keyType == "rmmy" {
+		keycode = 22
+	} else if keyType == "dm" {
+		keycode = 21
+	} else if keyType == "cy" {
+		keycode = 19
+	} else if keyType == "dgmy" {
+		keycode = 24
+	} else if keyType == "ry" {
+		keycode = 34
 	}
 	return keycode
 }
