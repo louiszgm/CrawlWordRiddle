@@ -52,6 +52,10 @@ func (riddle *Riddle) ParseRiddle() {
 		if values[0] == "谜面" {
 			//谜面里面分解出谜目
 			splitMimu := splitStringAndTrim(actualValue, "。")
+			//容错处理， 用空格分割
+			if len(splitMimu) == 1 {
+				splitMimu = strings.Fields(actualValue)
+			}
 			if len(splitMimu) == 2 {
 				riddle.Puzzle = splitMimu[0]
 				riddle.Mimu = splitMimu[1]
