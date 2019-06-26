@@ -289,6 +289,22 @@ CREATE TABLE `puzzle_qtmy` (
   `puzzleType` varchar(100) DEFAULT ''  COMMENT '类型',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='趣味谜语';
+
+
+CREATE TABLE `puzzle_etmy` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `puzzle` varchar(500) DEFAULT '' COMMENT '谜面',
+  `mimu` varchar(500) DEFAULT '' COMMENT '谜目',
+  `answer` varchar(100) DEFAULT '' COMMENT '谜底',
+  `tips` MEDIUMTEXT COMMENT '小贴士',
+  `url` varchar(100) DEFAULT '' COMMENT '数据来源',
+  `selection1` varchar(500) DEFAULT '选项一' COMMENT '选项一',
+  `selection2` varchar(500) DEFAULT '选项二' COMMENT '选项二',
+  `selection3` varchar(500) DEFAULT '选项三' COMMENT '选项三',
+  `puzzleType` varchar(100) DEFAULT ''  COMMENT '类型',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='儿童谜语';
+
 CREATE TABLE `ask_njmy_new` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `question` varchar(500) DEFAULT '' COMMENT '问',

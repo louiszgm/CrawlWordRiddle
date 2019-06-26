@@ -22,11 +22,12 @@ func GetPages(url string, keyType string) (pages []Page) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	keyCode := GetTypeKeyCode(keyType)
+	// keyCode := GetTypeKeyCode(keyType)
+	keyCode := GetEtmyKeyCode()
 	return parsePages(url, keyCode, doc)
 }
 
-func parsePages(puzzleUrl string, keyCode int, doc *goquery.Document) (pages []Page) {
+func parsePages(puzzleUrl string, keyCode string, doc *goquery.Document) (pages []Page) {
 	var firstPageNum = 1
 	var lastPageNum int
 	doc.Find(".pages ul").Each(func(i int, s *goquery.Selection) {
@@ -38,7 +39,8 @@ func parsePages(puzzleUrl string, keyCode int, doc *goquery.Document) (pages []P
 	})
 
 	for i := firstPageNum; i <= lastPageNum; i++ {
-		url := fmt.Sprintf("%smy%d%d.html", puzzleUrl, keyCode, i)
+		// url := fmt.Sprintf("%smy%d%d.html", puzzleUrl, keyCode, i)
+		url := fmt.Sprintf("%smy%s%d.html", puzzleUrl, keyCode, i)
 		pages = append(pages, Page{
 			Page: i,
 			Url:  url,
@@ -57,6 +59,9 @@ func getLastPageNum(lastPageUrl string) (pageNum int) {
 	return pageNum
 }
 
+func GetEtmyKeyCode() (keycode string) {
+	return "tid%7D"
+}
 func GetTypeKeyCode(keyType string) (keycode int) {
 	if keyType == "dwmy" {
 		keycode = 25

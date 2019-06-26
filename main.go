@@ -66,22 +66,22 @@ func CrawAskByType(askType string) {
 }
 func Start() {
 
-	wg.Add(3)
+	wg.Add(1)
 
 	go func() {
 		defer wg.Done()
-		CrawlRiddleByType("ysmy")
+		CrawlRiddleByType("etmy")
 	}()
 
-	go func() {
-		defer wg.Done()
-		CrawlRiddleByType("cwmy")
-	}()
+	// go func() {
+	//	defer wg.Done()
+	//	CrawlRiddleByType("cwmy")
+	// }()
 
-	go func() {
-		defer wg.Done()
-		CrawlRiddleByType("qtmy")
-	}()
+	// go func() {
+	//	defer wg.Done()
+	//	CrawlRiddleByType("qtmy")
+	// }()
 
 	// go func() {
 	//	defer wg.Done()
