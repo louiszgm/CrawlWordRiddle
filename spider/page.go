@@ -86,6 +86,34 @@ func GetTypeKeyCode(keyType string) (keycode int) {
 		keycode = 24
 	} else if keyType == "ry" {
 		keycode = 34
+	} else if keyType == "wpmy" {
+		keycode = 29
+	} else if keyType == "jmmy" {
+		keycode = 26
+	} else if keyType == "sbmy" {
+		keycode = 27
+	} else if keyType == "symy" {
+		keycode = 28
+	} else if keyType == "ypmy" {
+		keycode = 30
+	} else if keyType == "yymy" {
+		keycode = 31
+	} else if keyType == "ysmy" {
+		keycode = 32
+	} else if keyType == "cwmy" {
+		keycode = 23
+	} else if keyType == "qtmy" {
+		keycode = 35
 	}
 	return keycode
 }
+
+// 物品谜语 wpmy 29
+// 诗词谜语 jmmy 26
+// 书报谜语 sbmy 27
+// 俗语谜语 symy 28
+// 药品谜语 ypmy 30
+// 音乐谜语 yymy 31
+// 影视谜语 ysmy 32
+// 称谓谜语 cwmy 23
+// 趣味谜语 qtmy  35
