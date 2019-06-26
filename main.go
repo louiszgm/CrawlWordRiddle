@@ -73,23 +73,23 @@ func Start() {
 		CrawlRiddleByType("gxmy")
 	}()
 
-	// go func() {
-	//	defer wg.Done()
-	//	CrawlRiddleByType("zmmy")
-	// }()
+	go func() {
+		defer wg.Done()
+		CrawlRiddleByType("zmmy")
+	}()
 
-	// go func() {
-	//	defer wg.Done()
-	//	CrawlRiddleByType("cymy")
-	// }()
-	// go func() {
-	//	defer wg.Done()
-	//	CrawlRiddleByType("aqmy")
-	// }()
-	// go func() {
-	//	defer wg.Done()
-	//	CrawlRiddleByType("dmmy")
-	// }()
+	go func() {
+		defer wg.Done()
+		CrawlRiddleByType("cymy")
+	}()
+	go func() {
+		defer wg.Done()
+		CrawlRiddleByType("aqmy")
+	}()
+	go func() {
+		defer wg.Done()
+		CrawlRiddleByType("dmmy")
+	}()
 
 	// go func() {
 	//	defer wg.Done()
